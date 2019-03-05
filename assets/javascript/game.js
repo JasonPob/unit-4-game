@@ -1,20 +1,23 @@
 
-gameReset = function(on){
+
 //variables
 var wins = 0;
 var losses = 0;
 var targetNum = 0;
+gameReset = function(){
 var currentScore = 0;
 var numberOptions = new Array(4);
 var images = ["assets/images/fireStone.jpg", "assets/images/waterStone.jpg", "assets/images/shinyStone.jpg", "assets/images/thunderStone.jpg"]
 $("#losses").html("Losses: " + losses);
 $("#wins").html("Wins: " + wins);
 
+
 //randomly generate number for targetNum
 var min = 19;
 var max = 120;
 var targetNum = Math.floor(Math.random() * (+max - +min)) + +min;
 $("#targetScore").html("Target Score: " + targetNum);
+
 
 // var crystalvalue 
 var crystalvalue = 0;
@@ -55,12 +58,18 @@ $(".crystal-image").on("click", function () {
     if (currentScore === targetNum) {
         wins++
         alert("You win!");
+        $("#crystals").empty();
+        gameReset();
+       
     }
     else if (currentScore >= targetNum) {
         losses++
         alert("You lose!")
+        $("#crystals").empty();
+        gameReset();
     }
 
 });// end of click event
 }
- gameReset();
+gameReset();
+
