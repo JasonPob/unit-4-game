@@ -6,8 +6,9 @@ var losses = 0;
 var targetNum = 0;
 gameReset = function(){
 var currentScore = 0;
-var numberOptions = new Array(4);
-var images = ["assets/images/fireStone.jpg", "assets/images/waterStone.jpg", "assets/images/shinyStone.jpg", "assets/images/thunderStone.jpg"]
+var images = ["assets/images/fireStone.jpg", "assets/images/waterStone.jpg", "assets/images/shinyStone.jpg", "assets/images/thunderStone.jpg"];
+//dynamic relying on # of images
+var numberOptions = new Array(images.length);
 $("#losses").html("Losses: " + losses);
 $("#wins").html("Wins: " + wins);
 
