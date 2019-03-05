@@ -1,11 +1,14 @@
+
+gameReset = function(on){
+//variables
+var wins = 0;
+var losses = 0;
 var targetNum = 0;
 var currentScore = 0;
 var numberOptions = new Array(4);
-var images = ["assets/images/fireStone.jpg", "assets/images/waterStone.jpg", "assets/images/leafStone.jpg", "assets/images/thunderStone.jpg"]
-
-//print instructions
-// var instructions = "You will be given a random number at the start of the game. There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. You win the game by matching your total score to the target score provided. You lose the game when total score goes above the target score.";
-// $("#instructions").html(instructions);
+var images = ["assets/images/fireStone.jpg", "assets/images/waterStone.jpg", "assets/images/shinyStone.jpg", "assets/images/thunderStone.jpg"]
+$("#losses").html("Losses: " + losses);
+$("#wins").html("Wins: " + wins);
 
 //randomly generate number for targetNum
 var min = 19;
@@ -50,12 +53,14 @@ $(".crystal-image").on("click", function () {
 
     //win/loss conditions
     if (currentScore === targetNum) {
+        wins++
         alert("You win!");
     }
     else if (currentScore >= targetNum) {
+        losses++
         alert("You lose!")
     }
 
 });// end of click event
-
-
+}
+ gameReset();
